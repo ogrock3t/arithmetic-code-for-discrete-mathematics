@@ -17,7 +17,7 @@ def arithmetic_code(freq):
         high = low + range_width * symbol_high
         low = low + range_width * symbol_low
 
-    return (low + high) / 2, intervals
+    return (low + high) / 2, intervals, (low, high)
 
 
 if __name__ == "__main__":
@@ -30,9 +30,10 @@ if __name__ == "__main__":
         index = russian_alphabet.index(char)
         freq_letter[index] += 1
 
-    result, intervals = arithmetic_code(freq_letter)
+    result, intervals, final_interval = arithmetic_code(freq_letter)
 
     print(f"Закодированное значение: {result}")
+    print(f"Финальный интервал: {final_interval}")
 
     print("Таблица интервалов:")
     for i, interval in enumerate(intervals):
