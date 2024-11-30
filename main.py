@@ -1,3 +1,14 @@
+def float_to_binary(value, precision= 80):
+    binary = ""
+    while value > 0 and len(binary) < precision:
+        value *= 2
+        if value >= 1:
+            binary += '1'
+            value -= 1
+        else:
+            binary += '0'
+    return binary
+
 def arithmetic_code(freq):
     sum_freq = sum(freq)
     probabilities = [f / sum_freq for f in freq]
@@ -34,6 +45,9 @@ if __name__ == "__main__":
 
     print(f"Закодированное значение: {result}")
     print(f"Финальный интервал: {final_interval}")
+
+    binary_code = float_to_binary(result)
+    print(f"Финальный бинарный код: {binary_code}")
 
     print("Таблица интервалов:")
     for i, interval in enumerate(intervals):
